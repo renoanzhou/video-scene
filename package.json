@@ -1,27 +1,28 @@
 {
-  "name": "video-ratio",
-  "version": "1.0.0",
-  "description": "输入视频地址，获得视频的比例和分辨率 Enter the video address to get the scale and resolution of the video",
-  "main": "dist/video-ratio.cjs.js",
-  "module": "dist/video-ratio.esm.js",
-  "browser": "dist/video-ratio.umd.js",
+  "name": "video-scene",
+  "version": "0.0.1",
+  "description": "一些视频播放场景的基础功能",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w -m"
+    "build:radio": "cross-env packageName=radio rollup -c",
+    "dev:radio": "cross-env packageName=radio rollup -c -w -m",
+    "build:limitSeek": "cross-env packageName=limitSeek rollup -c",
+    "dev:limitSeek": "cross-env packageName=limitSeek rollup -c -w -m"
   },
   "keywords": [
     "video",
     "ratio",
     "resolution",
-    "scale"
+    "scale",
+    "seek",
+    "scene"
   ],
   "author": "zackXiong",
-  "homepage": "https://github.com/renoanzhou/video-ratio",
+  "homepage": "https://github.com/renoanzhou/video-scene",
   "repository": {
     "type": "git",
-    "url": "git@github.com:renoanzhou/video-ratio.git"
+    "url": "git@github.com:renoanzhou/video-scene.git"
   },
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/*/types/index.d.ts",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -33,6 +34,7 @@
     "@rollup/plugin-typescript": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.6.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.3",
@@ -42,7 +44,8 @@
     "rollup": "^2.52.2",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "zx": "^6.0.7"
   },
   "dependencies": {}
 }

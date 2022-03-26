@@ -5,17 +5,22 @@ import { terser } from 'rollup-plugin-terser';
 import eslint from '@rbnlffl/rollup-plugin-eslint';
 import resolve from '@rollup/plugin-node-resolve';
 
+const packageName = process.env.packageName;
+const outputPrefix = `dist/${packageName}/${packageName}`;
+
+console.log(packageName, outputPrefix);
+
 export default [
   {
-    input: './src/index.ts',
+    input: `./packages/${packageName}/src/index.ts`,
     output: [
       {
-        name: 'videoRatio',
-        file: pkg.browser,
+        name: `${packageName}`,
+        file: `${outputPrefix}.umd.js`,
         format: 'umd'
       },
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { file: `${outputPrefix}.cjs.js`, format: 'cjs' },
+      { file: `${outputPrefix}.es.js`, format: 'es' }
     ],
     plugins: [
       resolve(),
