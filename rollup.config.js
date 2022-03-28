@@ -8,19 +8,22 @@ import resolve from '@rollup/plugin-node-resolve';
 const packageName = process.env.packageName;
 const outputPrefix = `dist/${packageName}/${packageName}`;
 
-console.log(packageName, outputPrefix);
+// const packagesList = {
+
+// }
 
 export default [
   {
-    input: `./packages/${packageName}/src/index.ts`,
+    input: {
+      radio: './packages/radio/src/index.ts',
+      limitSeek: './packages/limitSeek/src/index.ts'
+    },
     output: [
       {
-        name: `${packageName}`,
-        file: `${outputPrefix}.umd.js`,
-        format: 'umd'
-      },
-      { file: `${outputPrefix}.cjs.js`, format: 'cjs' },
-      { file: `${outputPrefix}.es.js`, format: 'es' }
+        // format: 'umd',
+        dir: '/dist',
+        entryFileNames: '[name].js'
+      }
     ],
     plugins: [
       resolve(),
